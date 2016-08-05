@@ -61,6 +61,7 @@ function Device() {
             me.isVirtual = info.isVirtual;
             me.manufacturer = info.manufacturer || 'unknown';
             me.serial = info.serial || 'unknown';
+            me.arch = info.arch || 'unknown';
             channel.onCordovaInfoReady.fire();
         },function(e) {
             me.available = false;

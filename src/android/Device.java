@@ -76,6 +76,7 @@ public class Device extends CordovaPlugin {
             r.put("manufacturer", this.getManufacturer());
 	        r.put("isVirtual", this.isVirtual());
             r.put("serial", this.getSerialNumber());
+            r.put("arch", this.getCpuArch());
             callbackContext.success(r);
         }
         else {
@@ -131,6 +132,11 @@ public class Device extends CordovaPlugin {
     public String getSerialNumber() {
         String serial = android.os.Build.SERIAL;
         return serial;
+    }
+
+    public String getCpuArch(){
+      String arch = System.getProperty("os.arch");
+      return arch;
     }
 
     /**
