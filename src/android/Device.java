@@ -135,7 +135,12 @@ public class Device extends CordovaPlugin {
     }
 
     public String getCpuArch(){
-      String arch = System.getProperty("os.arch");
+      String arch = null;
+      if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP){
+        arch = android.os.Build.CPU_ABI;
+      }else{
+        arch = android.os.Build.SUPPORTED_ABIS[0];
+      }
       return arch;
     }
 
